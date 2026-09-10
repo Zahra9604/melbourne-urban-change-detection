@@ -1,0 +1,30 @@
+## Requirements
+
+### Software
+
+- Python 3.10+
+- PyTorch
+- NumPy
+- Pandas
+- Rasterio
+- GeoPandas
+- Shapely
+- scikit-learn
+- OpenCV
+- Matplotlib
+- tqdm
+
+See `requirements.txt` for the complete Python dependencies.
+
+### Dataset
+
+This project uses the **Onera Satellite Change Detection (OSCD)** dataset for pretraining and transfer-learning experiments.
+
+The OSCD dataset must be downloaded separately and is **not included in this repository**.
+
+After downloading and extracting the dataset, organize it as:
+
+```text
+OSCD_dataset/
+├── Images/
+└── Labels/
