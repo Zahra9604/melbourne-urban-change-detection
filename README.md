@@ -120,7 +120,6 @@ These observations suggest that transfer learning can be useful not only for mod
 melbourne-urban-change-detection/
 │
 ├── Melbourne/
-│
 │   ├── Codes/
 │   └── MelbourneData/
 │
