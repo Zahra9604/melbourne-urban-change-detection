@@ -122,41 +122,20 @@ melbourne-urban-change-detection/
 ├── README.md
 ├── data/
 ├── models/
-├── preprocessing/
-├── training/
-├── inference/
-├── evaluation/
-├── notebooks/
+├── codes/
 ├── results/
 ├── requirements.txt
 └── .gitignore
 ```
 
-## Status
-
-🚧 **Work in progress**
-
-The Melbourne ground-truth dataset is currently being systematically reviewed and refined. Additional experiments, evaluation, and visualisations will be added as the project develops.
-
-## Future Work
-
-Planned improvements include:
-
-* Further refinement of Melbourne ground-truth labels
-* Additional model evaluation
-* More systematic comparison of fusion strategies
-* Quantitative evaluation on the refined dataset
-* Improved visualisation of predictions and change maps
-* Further investigation of transfer learning for limited-label geospatial applications
 
 ## Technologies
-
+* GIS / Remote Sensing
+* Google Earth Engine
 * Python
 * PyTorch
-* Google Earth Engine
 * Sentinel-1
 * Sentinel-2
-* GIS / Remote Sensing
 * Deep Learning
 * Change Detection
 * Transfer Learning
