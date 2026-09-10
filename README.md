@@ -127,7 +127,8 @@ melbourne-urban-change-detection/
 │   ├── Codes/
 │   ├── Data/
 │
-└── README.md
+├──README.md
+└── requirements.txt
 ```
 
 
