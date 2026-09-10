@@ -125,7 +125,6 @@ melbourne-urban-change-detection/
 ├── codes/
 ├── results/
 ├── requirements.txt
-└── .gitignore
 ```
 
 
