@@ -6,7 +6,7 @@ Deep learning for building change detection using Sentinel-1/Sentinel-2 imagery 
 
 This project investigates deep-learning approaches for detecting building changes in Melbourne's western urban-growth corridor using multi-temporal Sentinel-1 and Sentinel-2 satellite imagery.
 
-The project explores whether **transfer learning from the Open Sentinel-2 Change Detection (OSCD) dataset** can improve change detection when only a limited amount of locally labelled Melbourne data are available.
+The project explores whether **transfer learning from the Onera Satellite Change Detection (OSCD) dataset** can improve change detection when only a limited amount of locally labelled Melbourne data are available.
 
 A particular focus of the project is the interaction between **model predictions and ground-truth development**. Model predictions are used not only for evaluation, but also to identify areas that may require further manual review and ground-truth refinement.
 
@@ -23,17 +23,139 @@ The study focuses on Melbourne's western urban-growth corridor, including rapidl
 
 The analysis uses a 10 m spatial resolution and focuses on building-related urban change.
 
+## Requirements
+
+### Software
+
+* Python 3.10+
+* PyTorch
+* NumPy
+* Pandas
+* Rasterio
+* GeoPandas
+* Shapely
+* scikit-learn
+* OpenCV
+* Matplotlib
+* tqdm
+* Google Earth Engine Python API
+
+The complete Python dependencies are listed in `requirements.txt`.
+
+### External Data
+
+Several datasets are required for the complete workflow. The satellite and land-cover data used for the Melbourne study area are **downloaded automatically through the provided Python scripts**, rather than being stored in this repository.
+
+### OSCD Dataset
+
+The **Onera Satellite Change Detection (OSCD)** dataset is required for OSCD pretraining and transfer-learning experiments.
+
+The OSCD dataset must be downloaded separately and is **not included in this repository**.
+
+After downloading and extracting the dataset, the initial structure should be:
+
+```text
+OSCD_dataset/
+├── Images/
+└── Labels/
+```
+
+The preprocessing code in `OSCD/Codes/` is then used to prepare the dataset and generate the required training, validation, and test splits.
+
+```text
+OSCD Dataset
+      ↓
+Images + Labels
+      ↓
+OSCD Preprocessing
+      ↓
+Train / Validation / Test Split
+      ↓
+Model Training
+      ↓
+Transfer Learning on Melbourne
+```
+
+### Melbourne Satellite Data
+
+The Melbourne change-detection inputs are generated from **Sentinel-1 SAR** and **Sentinel-2 optical imagery**.
+
+The required Sentinel-1 and Sentinel-2 imagery is downloaded automatically using the **Google Earth Engine Python API** through the provided data-acquisition/preprocessing scripts.
+
+Therefore, users do not need to manually download individual Sentinel-1 and Sentinel-2 scenes.
+
+The workflow is:
+
+```text
+Google Earth Engine
+        ↓
+Sentinel-1 / Sentinel-2
+        ↓
+AOI and temporal filtering
+        ↓
+Preprocessing
+        ↓
+Multi-temporal model inputs
+```
+
+Users will need a Google Earth Engine account with access to the Earth Engine Python API and appropriate authentication/configuration for their environment.
+
+### DEA Land Cover
+
+The **Digital Earth Australia (DEA) Land Cover** product is used to generate land-cover-based change candidates that support the development and validation of the Melbourne ground-truth dataset.
+
+DEA Land Cover data are downloaded automatically using:
+
+```text
+Melbourne/Codes/DEAmap_download.py
+```
+
+The script uses the **Melbourne DEA Land Cover C3 Downloader** to obtain the required DEA Land Cover data for the Melbourne study area.
+
+The workflow is:
+
+```text
+DEA Land Cover C3
+        ↓
+Melbourne DEA Land Cover Downloader
+        ↓
+DEA Land Cover 2023 / 2025
+        ↓
+Land-cover change candidates
+        ↓
+Ground-truth development
+```
+
+The DEA Land Cover data are not stored in the public repository.
+
+### High-Resolution Imagery
+
+High-resolution imagery is used for visual validation and manual refinement of potential building changes.
+
+This imagery is used to:
+
+* verify model-generated change candidates
+* investigate potential false positives
+* identify changes missed by initial labelling
+* refine building-change boundaries
+
 ## Data
 
 The project uses:
 
 * **Sentinel-1 SAR imagery**
 * **Sentinel-2 optical imagery**
-* **DEA Land Cover** products
+* **DEA Land Cover**
 * High-resolution imagery for visual validation
-* **OSCD** for initial model training
+* **OSCD** for initial model training and transfer learning
 
-The Sentinel-1 and Sentinel-2 data are processed to create multi-temporal inputs for change detection.
+Sentinel-1 and Sentinel-2 data are processed to create multi-temporal inputs for building change detection.
+
+The main Melbourne Sentinel-1/Sentinel-2 input configuration combines:
+
+* Sentinel-1 VV/VH
+* Sentinel-2 spectral bands
+* Multi-temporal observations
 
 ## Ground-Truth Development
 
@@ -58,7 +180,7 @@ During model evaluation, predictions from the fine-tuned models were also review
 
 ## Models and Experiments
 
-Several modelling strategies were investigated:
+Several modelling strategies were investigated.
 
 ### 1. Early Fusion — OSCD → Melbourne
 
@@ -83,9 +205,17 @@ Models trained on OSCD are directly applied to the Melbourne study area without 
 ## Experimental Workflow
 
 ```text
-OSCD Training
+OSCD Dataset
       ↓
-Melbourne Prediction
+OSCD Preprocessing
+      ↓
+Train / Validation / Test
+      ↓
+OSCD Model Training
+      ↓
+Melbourne Satellite Data Acquisition
+      ↓
+Initial Melbourne Prediction
       ↓
 Initial Ground-Truth Creation
       ↓
@@ -125,27 +255,28 @@ melbourne-urban-change-detection/
 │
 ├── OSCD/
 │   ├── Codes/
-│   ├── Data/
+│   └── Data/
 │
-├──README.md
+├── README.md
 └── requirements.txt
 ```
 
-
 ## Technologies
+
 * GIS / Remote Sensing
 * Google Earth Engine
 * Python
 * PyTorch
 * Sentinel-1
 * Sentinel-2
+* Digital Earth Australia (DEA)
 * Deep Learning
 * Change Detection
 * Transfer Learning
+* Spatial Data Processing
 
 ## Author
 
 **Tia Azarm**
 
 Geospatial AI Specialist | GIS | Remote Sensing | Spatial Analytics
-
