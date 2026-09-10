@@ -119,12 +119,16 @@ These observations suggest that transfer learning can be useful not only for mod
 ```text
 melbourne-urban-change-detection/
 │
-├── README.md
-├── data/
-├── models/
-├── codes/
-├── results/
-├── requirements.txt
+├── Melbourne/
+│
+│   ├── Codes/
+│   └── MelbourneData/
+│
+├── OSCD/
+│   ├── Codes/
+│   ├── Data/
+│
+└── README.md
 ```
 
 
