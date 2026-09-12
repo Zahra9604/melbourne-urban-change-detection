@@ -90,6 +90,7 @@ TEST_FILE = (
 )
 
 
+    
 # ============================================================
 # LABEL ROOTS
 # ============================================================
@@ -110,8 +111,15 @@ TEST_LABELS_ROOT = (
 # ============================================================
 
 DATA_ROOT = Path(
-    r"C:\earth-observation-change-detection\Data"
+    r"C:\melbourne-urban-change-detection\oscd\Data"
 )
+
+split_path = (
+    DATA_ROOT /'split_documents')
+split_path.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
 IMAGES_OUTPUT = (
     DATA_ROOT /
@@ -1243,7 +1251,7 @@ def save_city_list(
 ):
 
     path = (
-        DATA_ROOT /
+        split_path /
         filename
     )
 
@@ -1315,7 +1323,7 @@ def save_split_csv(
     )
 
     path = (
-        DATA_ROOT /
+        split_path /
         "city_split.csv"
     )
 

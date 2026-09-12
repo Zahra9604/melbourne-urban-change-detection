@@ -77,6 +77,8 @@ SERVICE_ACCOUNT = "service account"
 KEY_PATH = Path(r'please enter your path key file')
 
 
+
+
 # ============================================================
 # 3. INITIALIZE GOOGLE EARTH ENGINE
 # ============================================================
@@ -106,7 +108,7 @@ print(
 # ============================================================
 
 BASE_DIR = Path(
-    r"C:\earth-observation-change-detection\Data"
+    r"C:\melbourne-urban-change-detection\oscd\Data"
 )
 
 GEOJSON_DIR = BASE_DIR / "geojson"
