@@ -70,12 +70,13 @@ SERVICE_ACCOUNT = "service account"
 KEY_PATH = Path(r'please enter your path key file')
 
 
+
 # ============================================================
 # 2. OUTPUT DIRECTORY
 # ============================================================
 
 OUTPUT_DIR = Path(
-    r"C:\melbourne-urban-change-detection"
+    r"C:\melbourne-urban-change-detection\Melbourne"
     r"\MelbourneData"
 )
 

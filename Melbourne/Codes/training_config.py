@@ -101,8 +101,7 @@ elif TRAINING_MODE == 'pretrained_oscd':
 #     last_dual_stream_melbourne_v1.pth
 
 RESUME_CHECKPOINT_PATH = (
-    r"C:\earth-observation-change-detection"
-    r"\Melbourne\Codes\checkpoints"
+    r"C:\melbourne-urban-change-detection\Melbourne\MelbourneData\checkpoints"
     r"\last_dual_stream_melbourne_v1.pth"
 )
 
@@ -121,7 +120,7 @@ RESUME_CHECKPOINT_PATH = (
 #     dual_stream_melbourne_v1_history.csv
 
 RESUME_HISTORY_PATH = (
-    r"C:\earth-observation-change-detection\Melbourne\MelbourneData\results\dual_stream_melbourne_v1_history.csv"
+    r"C:\melbourne-urban-change-detection\Melbourne\MelbourneData\results\dual_stream_melbourne_v1_history.csv"
 )
 
 
@@ -135,16 +134,16 @@ RESUME_HISTORY_PATH = (
 #
 # Example:
 #
-#     C:\earth-observation-change-detection\OSCD\
+#     C:\melbourne-urban-change-detection\OSCD\
 #     weights\last_model.pth
 if STRATEGY == "dual_stream":
     PRETRAINED_MODEL_PATH = (
-    r"C:\earth-observation-change-detection\Melbourne\MelbourneData\checkpoints\best_dual_stream_oscd.pth"
+    r"C:\melbourne-urban-change-detection\Melbourne\MelbourneData\checkpoints\best_dual_stream_oscd.pth"
         )
 
 else:
     PRETRAINED_MODEL_PATH = (
-    r"C:\earth-observation-change-detection\Melbourne\MelbourneData\checkpoints\best_early_fusion_oscd.pth"
+    r"C:\melbourne-urban-change-detection\Melbourne\MelbourneData\checkpoints\best_early_fusion_oscd.pth"
         )
 
 

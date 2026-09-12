@@ -149,7 +149,6 @@ import csv
 import time
 import shutil
 from tqdm import tqdm
-from MyoldLapData.code import model
 import torch
 import torch.nn as nn
 from melbourne_dataset import create_dataloaders

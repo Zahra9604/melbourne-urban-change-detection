@@ -54,7 +54,7 @@ import odc.stac
 # ============================================================
 
 OUTPUT_DIR = Path(
-    r"C:\earth-observation-change-detection"
+    r"C:\melbourne-urban-change-detection\Melbourne"
     r"\MelbourneData"
 )
 

@@ -68,29 +68,6 @@ from rasterio.warp import reproject
 from rasterio.enums import Resampling
 
 
-# ============================================================
-# 1. BASE DIRECTORY
-# ============================================================
-
-# Your project structure:
-#
-# C:\earth-observation-change-detection\
-# │
-# ├── Codes
-# │
-# └── MelbourneData
-#
-# If this script is inside:
-#
-# C:\earth-observation-change-detection\Codes
-#
-# then:
-#
-# os.path.dirname(os.getcwd())
-#
-# points to:
-#
-# C:\earth-observation-change-detection
 
 ROOT = os.path.dirname(
     os.getcwd()
